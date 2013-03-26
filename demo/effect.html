@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Coo Slider demo</title>
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="http://fortawesome.github.com/Font-Awesome/assets/css/font-awesome.css" rel="stylesheet">
+    <link href="../lib/animate/animate.min.css" rel="stylesheet">
+    <link href="../src/coo/css/slider.css" rel="stylesheet">
+    <style type="text/css">
+    body {
+        background-color: #fff;
+        color: #333;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        margin: 0;
+        padding: 0;
+    }
+    h1 {
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 20px;
+    }
+    /* Sidebar */
+    .demo-sidebar {
+        height: 100%;
+        width: 300px;
+        margin: 0;
+        position: fixed;
+            top: 0;
+    }
+    .demo-sidebar .tab-content {
+        border-right: 1px solid #ddd;
+        height: 100%;
+        padding: 0 10px;
+    }
+    .demo-sidebar .nav-tabs {
+        border-left: none;
+        margin-left: 0px;
+        width: 40px;
+    }
+    .demo-sidebar .nav-tabs a {
+        cursor: pointer !important;
+        min-width: 40px !important;
+        padding-right: 0 !important;
+    }
+    .demo-sidebar a.badge {
+        margin: 4px;
+    }
+    .demo-horizontal {
+        border-top: 1px solid #d5d5d5;
+        text-align: center;
+        margin: 20px 0 0 0;
+    }
+    .demo-horizontal h5 {
+        margin: 0;
+        padding: 0;
+    }
+    .demo-horizontal span {
+        background: #fff;
+        position: relative;
+        padding: 0 10px;
+        top: -10px;
+    }
+
+    .demo-container {
+        margin: 0 auto 40px auto;
+        width: 800px;
+    }
+    .demo-item {
+        position: relative;
+    }
+    .demo-item h2, .demo-item p {
+        color: #fff;
+        opacity: 0.75;
+        padding: 5px;
+        position: absolute;
+        z-index: 999;  /* TODO: Move this to core */
+    }
+    .demo-item h2 {
+        background-color: #468847;
+    }
+    .demo-item p {
+        background-color: #3A87AD;
+    }
+    </style>
+</head>
+<body>
+    <!-- Effects -->
+    <div class="tabbable tabs-right demo-sidebar" id="sidebar">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab-effects" title="Effects" id="btn-effects" data-toggle="tab"><i class="icon-magic"></i></a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab-effects">
+                <h4>Effects</h4>
+                <p>You can click on any <span class="badge badge-default">effect</span> to see how it works.</p>
+                <p class="btn-group" style="width: 100%;">
+                    <button class="btn btn-success active" data-feature="all">All <span></span></button>
+                    <button class="btn" data-feature="css3">CSS 3 <span></span></button>
+                    <button class="btn" data-feature="js">JS <span></span></button>
+                </p>
+                <div id="effects"></div>
+                <div class="demo-horizontal"><h5><span>OR</span></h5></div>
+                <p style="text-align: center;"><button id="randomize" class="btn btn-primary"><i class="icon-random"></i> Randomize effects</button></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide items -->
+    <div class="demo-container">
+        <h1>Coo Slider <small>&mdash; a responsive slider built from scratch</small></h1>
+
+        <div id="slide">
+            <div class="demo-item" data-effect="swap">
+                <img src="images/800/2012-BMW-Series-1.jpg" />
+                <h2 data-effect="bounceIn">BMW series 3 2012, aka F30</h2>
+                <p data-effect="fadeInDown">The sportiest car in its segment and offers sheer driving pleasure at the highest level</p>
+            </div>
+            <div class="demo-item" data-effect="random">
+                <img src="images/800/2012-BMW-Series-58.jpg" />
+                <h2 data-effect="random">BMW series 3 2012, aka F30</h2>
+                <p data-effect="random">The sportiest car in its segment and offers sheer driving pleasure at the highest level</p>
+            </div>
+            <div class="demo-item" data-effect="random">
+                <img src="images/800/2012-BMW-Series-20.jpg" />
+                <h2 data-effect="random">BMW series 3 2012, aka F30</h2>
+                <p data-effect="random">The sportiest car in its segment and offers sheer driving pleasure at the highest level</p>
+            </div>
+            <div class="demo-item" data-effect="swap">
+                <img src="images/800/2012-BMW-Series-65.jpg" />
+                <h2 data-effect="flip">BMW series 3 2012, aka F30</h2>
+                <p data-effect="pulse">The sportiest car in its segment and offers sheer driving pleasure at the highest level</p>
+            </div>
+            <div class="demo-item" data-effect="swap">
+                <img src="images/800/2012-BMW-Series-68.jpg" />
+                <h2 data-effect="shake">BMW series 3 2012, aka F30</h2>
+                <p data-effect="flipInX">The sportiest car in its segment and offers sheer driving pleasure at the highest level</p>
+            </div>
+            <div class="demo-item" data-effect="swap">
+                <img src="images/800/2012-BMW-Series-71.jpg" />
+                <h2 data-effect="swing">BMW series 3 2012, aka F30</h2>
+                <p data-effect="wiggle">The sportiest car in its segment and offers sheer driving pleasure at the highest level</p>
+            </div>
+        </div>
+    </div>
+
+<script src="../lib/jquery/jquery.min.js"></script>
+<script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-tab.js"></script>
+<script src="../lib/mousewheel/jquery.mousewheel.js"></script>
+<script src="../release/1.0.6/js/coo.slider.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    var slider = new Coo.Slider('#slide', {
+        autoPlay: true,
+        animationSpeed: 800,
+        effect: 'auto',
+        delay: 500,
+        interval: 5000
+        //effect: 'sliceUpLeft'
+        //effect: 'boxRandom', columns: 10, rows: 5
+        //effect: 'swirlFadeOut', circles: 10, delay: 5000
+    });
+
+    // Generate random position for text elements inside each slide item
+    function random(min, max) {
+        return Math.round(Math.random() * (max - min)) + min;
+    }
+    $('.demo-item h2').each(function() {
+        $(this).css({
+            top: random(10, 80) + '%',
+            left: random(20, 70) + '%'
+        });
+    });
+    $('.demo-item p').each(function() {
+        $(this).css({
+            top: random(20, 70) + '%',
+            left: random(30, 60) + '%'
+        });
+    });
+
+    // Show the sidebar buttons at the middle
+    $('#sidebar .nav-tabs').css('margin-top', ($(window).height() - $('#sidebar .nav-tabs').children().length * 36) / 2);
+
+    // Show/hide the sidebar
+    $('#btn-effects').on('click', function() {
+        $('#sidebar').width(340 - $('#sidebar').width()).find('.tab-content').toggle();
+    });
+
+    // List available effects
+    var effects = Coo.Effect.getEffects().sort();
+    for (var i in effects) {
+        var e  = Coo.Effect.factory(effects[i]);
+        var $a = $('<a/>').addClass('badge')
+                        .addClass(effects[i] == slider.getOption('effect') ? 'badge-success' : 'badge-default')
+                        .html(effects[i])
+                        .attr('data-features', e.getFeatures().concat(['all']).join('|'))
+                        .on('click', function() {
+                            $('#effects').find('a').removeClass('badge-success');
+                            $(this).attr('class', '').addClass('badge badge-success');
+                            slider.$items.attr('data-effect', $(this).html());
+                            slider.pause();
+                            slider.getEffect().resetAll();
+                            slider.next();
+                        })
+                        .appendTo('#effects');
+        if (!e.support()) {
+            $a.off('click').css({
+                textDecoration: 'line-through'
+            }).attr('class', 'badge badge-warning');
+        }
+    }
+
+    // Filter the effects
+    $('#tab-effects button[data-feature]').each(function() {
+        var feature  = $(this).attr('data-feature'),
+            $effects = $('#effects').find('a[data-features*=' + feature + ']');
+        $(this).find('span').html('(' + $effects.length + ')');
+
+        $(this).on('click', function() {
+            $('#effects').find('a').hide();
+            $effects.fadeIn();
+            $('#tab-effects button[data-feature]').removeClass('active btn-success');
+            $(this).addClass('active btn-success');
+        });
+    }).eq(0).click();
+
+    // Randomize the effects
+    $('#randomize').on('click', function() {
+        $('#effects').find('a').removeClass('badge-success');
+        slider.pause();
+        slider.$items.each(function() {
+            $(this).attr('data-effect', Coo.Effect.randomize(this).getName());
+        });
+        slider.getEffect().resetAll();
+        slider.next();
+    });
+});
+</script>
+</body>
+</html>

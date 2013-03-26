@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Coo Slider demo</title>
+    <link href="../lib/animate/animate.min.css" rel="stylesheet">
+    <link href="../src/coo/css/slider.css" rel="stylesheet">
+    <style type="text/css">
+    body {
+        background-color: #f1f1f1;
+        color: #333;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        margin: 0;
+        padding: 0;
+    }
+    h1 {
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 20px;
+    }
+    .demo-container {
+        margin: 0 30px 40px 30px;
+        max-width: 800px;
+    }
+    .demo-item {
+        position: relative;
+    }
+    .demo-item h2, .demo-item p {
+        color: #fff;
+        opacity: 0.75;
+        padding: 5px;
+        position: absolute;
+        z-index: 999;  /* TODO: Move this to core */
+    }
+    .demo-item h2 {
+        background-color: #468847;
+    }
+    .demo-item p {
+        background-color: #3A87AD;
+    }
+    </style>
+</head>
+<body>
+    <!-- Slide items -->
+    <div class="demo-container">
+        <h1>Coo Slider <small>&mdash; a responsive slider built from scratch</small></h1>
+
+        <div id="slide">
+            <div class="demo-item">
+                <img data-effect="random" src="images/800/2012-BMW-Series-1.jpg" />
+                <h2 data-effect="random">BMW series 3 2012, aka F30</h2>
+                <p data-effect="random">The sportiest car in its segment and offers sheer driving pleasure at the highest level</p>
+            </div>
+            <div class="demo-item">
+                <img data-effect="random" src="images/800/2012-BMW-Series-58.jpg" />
+                <h2 data-effect="random">BMW series 3 2012, aka F30</h2>
+                <p data-effect="random">The sportiest car in its segment and offers sheer driving pleasure at the highest level</p>
+            </div>
+            <div class="demo-item">
+                <div data-effect="random">
+                    <img src="images/800/2012-BMW-Series-20.jpg" />
+                </div>
+                <h2 data-effect="random">BMW series 3 2012, aka F30</h2>
+                <p data-effect="random">The sportiest car in its segment and offers sheer driving pleasure at the highest level</p>
+            </div>
+            <div class="demo-item">
+                <img data-effect="random" src="images/800/2012-BMW-Series-65.jpg" />
+                <h2 data-effect="random">BMW series 3 2012, aka F30</h2>
+                <p data-effect="random">The sportiest car in its segment and offers sheer driving pleasure at the highest level</p>
+            </div>
+            <div class="demo-item">
+                <img data-effect="random" src="images/800/2012-BMW-Series-68.jpg" />
+                <h2 data-effect="random">BMW series 3 2012, aka F30</h2>
+                <p data-effect="random">The sportiest car in its segment and offers sheer driving pleasure at the highest level</p>
+            </div>
+            <div class="demo-item">
+                <img data-effect="random" src="images/800/2012-BMW-Series-71.jpg" />
+                <h2 data-effect="random">BMW series 3 2012, aka F30</h2>
+                <p data-effect="random">The sportiest car in its segment and offers sheer driving pleasure at the highest level</p>
+            </div>
+        </div>
+    </div>
+
+<script src="../lib/jquery/jquery.min.js"></script>
+<script src="../lib/mousewheel/jquery.mousewheel.js"></script>
+<script src="../release/1.0.6/js/coo.slider.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    var slider = new Coo.Slider('#slide', {
+        autoPlay: true,
+        effect: 'auto',
+        animationSpeed: 800,
+        delay: 400,
+        interval: 5000,
+        progressBar: true
+    });
+
+    // Generate random position for text elements inside each slide item
+    function random(min, max) {
+        return Math.round(Math.random() * (max - min)) + min;
+    }
+    $('.demo-item h2').each(function() {
+        $(this).css({
+            top: random(10, 80) + '%',
+            left: random(20, 70) + '%'
+        });
+    });
+    $('.demo-item p').each(function() {
+        $(this).css({
+            top: random(20, 70) + '%',
+            left: random(30, 60) + '%'
+        });
+    });
+});
+</script>
+</body>
+</html>
